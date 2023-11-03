@@ -11,6 +11,7 @@ const app = express();
 
 const whitelist = [
     "http://localhost:5173",
+    "https://ecom-app-siz3.onrender.com",
     "https://store-furniture-app.netlify.app",
     "https://store-furniture-app.netlify.app/admin/products"
 ];
