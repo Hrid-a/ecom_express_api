@@ -39,7 +39,7 @@ module.exports = (error, req, res, next) => {
 
     if (process.env.NODE_ENV === 'development') {
 
-        res.status(400).json({ message: error.message, success: false, error });
+        res.status(400).json({ message: error.message, success: false, stackError: error.stack });
 
     } else if (process.env.NODE_ENV === 'production') {
 
