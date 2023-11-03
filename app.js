@@ -9,7 +9,7 @@ const cors = require('cors');
 
 const app = express();
 
-const whitelist = ["http://localhost:5173", "https://ecom-app-siz3.onrender.com", "https://ecom-app-siz3.onrender.com/admin/products"];
+const whitelist = ["http://localhost:5173", "https://store-furniture-app.netlify.app/", "https://store-furniture-app.netlify.app/admin/products"];
 const corsOptions = {
     credentials: true, // This is important.
     origin: (origin, callback) => {
