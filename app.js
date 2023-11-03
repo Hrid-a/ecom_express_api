@@ -9,17 +9,23 @@ const cors = require('cors');
 
 const app = express();
 
-const whitelist = ["http://localhost:5173", "https://store-furniture-app.netlify.app/", "https://store-furniture-app.netlify.app/admin/products"];
+const whitelist = [
+    "http://localhost:5173",
+    "https://store-furniture-app.netlify.app",
+    "https://store-furniture-app.netlify.app/admin/products"
+];
+
 const corsOptions = {
-    credentials: true, // This is important.
+    credentials: true,
     origin: (origin, callback) => {
-        if (whitelist.includes(origin)) return callback(null, true)
+        if (whitelist.includes(origin)) return callback(null, true);
 
         callback(new CustomError('Not allowed by CORS', 400));
     }
-}
+};
 
 app.use(cors(corsOptions));
+
 
 // Docs and docs middleware 
 
