@@ -22,7 +22,10 @@ const corsOptions = {
         if (whitelist.includes(origin)) return callback(null, true);
 
         callback(new CustomError('Not allowed by CORS', 400));
-    }
+    },
+    methods: "GET,HEAD,PUT,POST,DELETE",  // Add the methods you want to allow
+    preflightContinue: false,  // Set preflightContinue to false
+    optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));

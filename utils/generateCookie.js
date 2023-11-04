@@ -8,7 +8,7 @@ const generateCookie = (user, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "Lax",
-        domain: "https://ecom-app-siz3.onrender.com"
+        origin: "https://ecom-app-siz3.onrender.com"
     }
 
     res.status(200).cookie('token', token, options).json({ token, success: true, user });
