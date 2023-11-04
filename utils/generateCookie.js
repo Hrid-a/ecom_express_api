@@ -7,6 +7,7 @@ const generateCookie = (user, res) => {
         expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
         httpOnly: true,
         secure: true,
+        sameSite: "Lax",
         domain: "https://ecom-app-siz3.onrender.com"
     }
 
