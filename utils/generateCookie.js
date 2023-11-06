@@ -5,10 +5,10 @@ const generateCookie = (user, res) => {
 
     const options = {
         expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
-        httpOnly: true,
+        domain: '.onrender.com',
+        sameSite: 'None',
         secure: true,
-        sameSite: "Lax",
-        origin: "https://ecom-app-siz3.onrender.com"
+        httpOnly: true,
     }
 
     res.status(200).cookie('token', token, options).json({ token, success: true, user });
