@@ -19,7 +19,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const whitelist = [
     "http://localhost:5173",
     "https://ecom-app-siz3.onrender.com",
-    "https://ecom-app-siz3.onrender.com/api/v1/admin/products"
+    "https://ecom-app-siz3.onrender.com/admin/products"
 ];
 
 const corsOptions = {
@@ -56,7 +56,6 @@ app.use(fileUpload({
 app.use(morgan('tiny'));
 
 // import routes Here
-const home = require('./routes/home');
 const user = require('./routes/user');
 const product = require('./routes/product');
 const order = require('./routes/order');
