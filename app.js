@@ -34,7 +34,8 @@ const corsOptions = {
     },
     methods: "GET,HEAD,PUT,POST,DELETE",
     preflightContinue: false,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 204,
+    allowedHeaders: 'Content-Type'
 };
 
 app.use(cors(corsOptions));
