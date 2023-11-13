@@ -19,7 +19,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const whitelist = [
     "http://localhost:5173",
     "https://ecom-app-siz3.onrender.com",
-    "https://ecom-app-siz3.onrender.com/admin/products"
+    "https://ecom-app-siz3.onrender.com/api/v1/admin/products"
 ];
 
 const corsOptions = {
