@@ -25,8 +25,9 @@ const whitelist = [
 const corsOptions = {
     credentials: true,
     origin: (origin, callback) => {
+        console.log(origin);
         // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin || whitelist.includes(origin)) {
+        if (whitelist.includes(origin)) {
             callback(null, true);
         } else {
             callback(new CustomError('Not allowed by CORS', 400));
