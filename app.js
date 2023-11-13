@@ -18,7 +18,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const whitelist = [
     "http://localhost:5173",
-    "http://localhost:5173/admin/products",
+    "https://ecom-app-siz3.onrender.com/",
     "https://ecom-app-siz3.onrender.com",
     "https://ecom-app-siz3.onrender.com/admin/products"
 ];
