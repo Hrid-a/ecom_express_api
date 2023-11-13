@@ -74,7 +74,7 @@ userSchema.methods.generateJwtToken = function () {
     });
 }
 
-userSchema.methods.getforgotPasswordToken = function () {
+userSchema.methods.getForgottenPasswordToken = function () {
 
     const forgotPassword = crypto.randomBytes(20).toString('hex');
 

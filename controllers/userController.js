@@ -50,7 +50,13 @@ exports.login = apiPromise(async (req, res, next) => {
 
 exports.logout = apiPromise(async (req, res, next) => {
 
-    res.cookie("token", null, { expires: new Date(Date.now()), httpOnly: true }).json({ "success": true, "message": "Logged out successfully" });
+    res.cookie("token", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        domain: ".onrender.com"
+    }).json({ "success": true, "message": "Logged out successfully" });
 })
 
 exports.forgotPassword = apiPromise(async (req, res, next) => {
@@ -63,7 +69,7 @@ exports.forgotPassword = apiPromise(async (req, res, next) => {
 
     if (!user) return next(new CustomError("That address either Invalid or not associated with a personal user account", 400));
 
-    const forgotPasswordToken = user.getforgotPasswordToken();
+    const forgotPasswordToken = await user.getForgottenPasswordToken();
     await user.save({ validateBeforeSave: false });
 
     const RESET_PASS_URL = `${req.protocol}::/${req.get("host")}api/v1/resetPassword/${forgotPasswordToken}`;

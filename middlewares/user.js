@@ -5,7 +5,6 @@ const CustomError = require('../utils/CustomError');
 
 exports.isLoggedIn = apiPromise(async (req, res, next) => {
     const token = req.cookies.token || req.headers?.Authorization?.replace("Bearer ", "");
-    console.log(token);
     if (!token) return next(new CustomError("Please sign in first", 400));
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
