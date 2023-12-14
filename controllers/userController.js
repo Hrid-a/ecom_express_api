@@ -14,11 +14,16 @@ exports.signup = apiPromise(async (req, res, next) => {
 
     if (req.files?.image) {
         const file = req.files.image;
-        const result = await cloudinary.v2.uploader.upload(file.tempFilePath, {
-            folder: "users",
-        })
+        const result = await
+            cloudinary.v2.uploader
+                .upload(file.tempFilePath, {
+                    folder: "users",
+                })
 
-        data.image = { id: result.public_id, url: result.secure_url };
+        data.image = {
+            id: result.public_id,
+            url: result.secure_url
+        };
     }
 
 

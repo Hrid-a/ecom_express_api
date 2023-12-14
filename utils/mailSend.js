@@ -20,7 +20,7 @@ const mailSend = async (option) => {
         text: option.message, // plain text body
     }
 
-    await transporter.sendMail();
+    await transporter.sendMail(options);
 }
 
 module.exports = mailSend;
