@@ -66,9 +66,7 @@ exports.forgotPassword = apiPromise(async (req, res, next) => {
     if (!email) return next(new CustomError("Please Enter Your Email Address"));
 
     const user = await User.findOne({ email });
-    console.log("user maybe not found", user);
     if (!user) return next(new CustomError("That address either Invalid or not associated with a personal user account", 400));
-    console.log("user", user);
     const forgotPasswordToken = await user.getForgottenPasswordToken();
     await user.save({ validateBeforeSave: false });
 

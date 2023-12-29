@@ -14,7 +14,7 @@ const mailSend = async ({ email, subject, message }) => {
 
 
     const options = {
-        from: 'ahmed@dev.com', // sender address
+        from: process.env.SMTP_AUTH_USER, // sender address
         to: email, // list of receivers
         subject: subject, // Subject line
         text: message, // plain text body
