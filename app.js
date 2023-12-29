@@ -18,29 +18,26 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const whitelist = [
     "http://localhost:5173",
-    "https://ecom-app-siz3.onrender.com",
-    "https://ecom-app-siz3.onrender.com/admin/products"
+    "https://ecom-app-siz3.onrender.com"
 ];
 
 const corsOptions = {
     credentials: true,
     origin: (origin, callback) => {
-        console.log(origin);
-        // Allow requests with no origin (like mobile apps or curl requests)
+
         if (whitelist.includes(origin)) {
             callback(null, true);
         } else {
-            callback(new CustomError('Not allowed by CORS', 400));
+            callback(new CustomError('Not allowed by  CORS', 400));
         }
     },
     methods: "GET,HEAD,PUT,POST,DELETE",
-    preflightContinue: false,
+    preflightContinue: true,
     optionsSuccessStatus: 204,
     allowedHeaders: 'Content-Type'
 };
 
 app.use(cors(corsOptions));
-
 // reqular middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
