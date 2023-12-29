@@ -76,8 +76,14 @@ exports.forgotPassword = apiPromise(async (req, res, next) => {
     const message = `Please copy and the pase this link into your URL \n\n ${RESET_PASS_URL}`;
     const subject = "Password Reset - AHMED";
 
+    const options = {
+        email: user.email,
+        subject,
+        message,
+    }
+
     try {
-        await mailSend(user.email, subject, message);
+        await mailSend(options);
         res.status(200).send({ success: true, message: 'The email was sent successfully' });
     }
     catch (e) {
